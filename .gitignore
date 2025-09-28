@@ -1,0 +1,53 @@
+# Build
+.build/
+DerivedData/
+
+# Generated
+Package.resolved
+
+# OS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Documents
+*.doc
+*.pdf
+*.rtf
+
+# Logs
+*.log
+
+# Xcode
+*.xcodeproj/
+*.xcworkspace/
+*.playground/
+*.xcuserstate
+xcuserdata/
+
+# macOS
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+.tmp
+temp/
+
+# ML models and datasets (adjust as needed)
+*.safetensors
+*.gguf
+*.bin
+
+# Local configuration files
+*.local
+*.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
