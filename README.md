@@ -1,61 +1,61 @@
 # MLX Gemma Chat
 
-这是一个使用 MLX Swift 框架运行 Google Gemma 2B 模型的 Swift 项目。
+This is a Swift project that runs Google's Gemma 2B model using the MLX Swift framework.
 
-## 功能特性
+## Features
 
-- 🚀 基于 MLX 框架的高性能推理
-- 💬 交互式聊天界面
-- 🔧 4-bit 量化优化
-- 🎛️ 可配置的生成参数
-- 📱 原生 macOS 支持
-- 📈 改进的进度条显示（带实时进度更新）
+- 🚀 High-performance inference using MLX framework
+- 💬 Interactive chat interface
+- 🔧 4-bit quantization optimization
+- 🎛️ Configurable generation parameters
+- 📱 Native macOS support
+- 📈 Enhanced progress bar display (with real-time progress updates)
 
-## 系统要求
+## System Requirements
 
 - macOS 14.0+ 
 - Swift 5.9+
 - Apple Silicon Mac (M1/M2/M3)
-- 至少 8GB RAM
+- At least 8GB RAM
 
-## 安装和运行
+## Installation and Running
 
-### 1. 安装依赖
+### 1. Install Dependencies
 
-首先确保你的 Mac 支持 MLX 框架：
+First, ensure your Mac supports the MLX framework:
 
 ```bash
-# 检查系统兼容性
+# Check system compatibility
 system_profiler SPHardwareDataType | grep "Chip"
 ```
 
-### 2. 构建项目
+### 2. Build the Project
 
 ```bash
-# 下载依赖并构建
+# Download dependencies and build
 swift build -c release
 
-# 或者用于开发调试
+# Or for development/debugging
 swift build
 ```
 
-### 3. 运行应用
+### 3. Run the Application
 
 ```bash
-# 运行编译后的可执行文件
+# Run the compiled executable
 swift run gemma-inference
 
-# 或者直接运行 main.swift
+# Or run main.swift directly
 swift run
 ```
 
-## 使用方法
+## Usage
 
-1. **启动应用**：运行后会自动下载和加载 Gemma 2B 模型，您将看到实时的进度条显示模型下载进度
-2. **开始对话**：在提示符后输入你的问题
-3. **退出应用**：输入 `quit` 或 `exit`
+1. **Start the application**: After running, the Gemma 2B model will be automatically downloaded and loaded, and you will see a real-time progress bar showing the model download progress
+2. **Start a conversation**: Enter your question after the prompt
+3. **Exit the application**: Type `quit` or `exit`
 
-### 示例对话
+### Example Conversation
 
 ```
 🚀 Starting Gemma 2B inference with MLX...
@@ -67,20 +67,20 @@ swift run
 Type your messages (or 'quit' to exit):
 ==================================================
 
-👤 You: 什么是机器学习？
-🤖 Gemma: 机器学习是人工智能的一个分支...
+👤 You: What is machine learning?
+🤖 Gemma: Machine learning is a branch of artificial intelligence...
 
 👤 You: quit
 👋 Goodbye!
 ```
 
-## 配置选项
+## Configuration Options
 
-在 `main.swift` 的 `Config` 结构体中可以调整：
+Adjustable in the `Config` struct in `main.swift`:
 
-- `maxTokens`: 最大生成 token 数量
-- `temperature`: 生成随机性（0.0-1.0）
-- `topP`: nucleus sampling 参数
+- `maxTokens`: Maximum number of generated tokens
+- `temperature`: Generation randomness (0.0-1.0)
+- `topP`: Nucleus sampling parameter
 
 ```swift
 struct Config {
@@ -90,52 +90,52 @@ struct Config {
 }
 ```
 
-## 进度条功能
+## Progress Bar Features
 
-新添加的 `ProgressBar` 结构体提供了：
-- 实时进度更新
-- 平滑的进度条动画
-- 百分比完成度显示
-- 下载完成提示
+The newly added `ProgressBar` struct provides:
+- Real-time progress updates
+- Smooth progress bar animation
+- Percentage completion display
+- Download completion notification
 
-## 项目结构
+## Project Structure
 
 ```
 mlx-gemma-chat/
-├── main.swift          # 主程序文件
-├── Package.swift       # Swift Package Manager 配置
-└── README.md          # 项目说明文档
+├── main.swift          # Main program file
+├── Package.swift       # Swift Package Manager configuration
+└── README.md          # Project documentation
 ```
 
-## 开发说明
+## Development Notes
 
-当前实现包含了完整的应用架构，包括：
+The current implementation includes a complete application architecture, including:
 
-1. **模型加载器**：使用 MLXLLM 高级 API
-2. **文本生成**：基于 MLX 框架的高效生成
-3. **令牌化**：集成的 tokenizer 处理
-4. **流式输出**：实时响应生成
-5. **进度条**：模型下载进度可视化
+1. **Model loader**: Using MLXLLM high-level API
+2. **Text generation**: Efficient generation based on MLX framework
+3. **Tokenization**: Integrated tokenizer processing
+4. **Streaming output**: Real-time response generation
+5. **Progress bar**: Visual model download progress
 
-## 故障排除
+## Troubleshooting
 
-### 常见问题
+### Common Issues
 
-**Q: 编译错误 - 找不到 MLX 模块**
-A: 确保使用的是 Apple Silicon Mac，并且安装了最新的 Xcode
+**Q: Compilation error - Cannot find MLX module**
+A: Ensure you are using an Apple Silicon Mac with the latest Xcode installed
 
-**Q: 模型下载失败**
-A: 检查网络连接，模型会从 Hugging Face 自动下载
+**Q: Model download failure**
+A: Check your network connection; the model will be automatically downloaded from Hugging Face
 
-**Q: 内存不足错误**
-A: 尝试减少 `maxTokens` 或使用更小的模型
+**Q: Out of memory error**
+A: Try reducing `maxTokens` or use a smaller model
 
-## 参考资源
+## Resources
 
-- [MLX Swift 官方文档](https://github.com/ml-explore/mlx-swift)
-- [Gemma 模型文档](https://ai.google.dev/gemma)
+- [MLX Swift Official Documentation](https://github.com/ml-explore/mlx-swift)
+- [Gemma Model Documentation](https://ai.google.dev/gemma)
 - [Swift Package Manager](https://swift.org/package-manager/)
 
-## 许可证
+## License
 
-本项目遵循 MIT 许可证。
+This project is licensed under the MIT License.
